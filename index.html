@@ -1,31 +1,112 @@
-<!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meal Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="scripts.js"></script>
+</head>
+<body>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+  <header>
+    <h1>Global Meal Catalog</h1>
+    <p>Browse, search, and filter meals from around the world</p>
+  </header>
+
+  <main>
+
+    <!-- Filter & Sort card -->
+    <section class="controls-card">
+      <h2 class="controls-title">Filter &amp; Sort</h2>
+      <div class="controls">
+
+        <div class="control-group">
+          <label for="search-input">Search</label>
+          <input type="text" id="search-input" placeholder="Search by name..." />
+        </div>
+
+        <div class="control-group">
+          <label for="category-filter">Meal Type</label>
+          <select id="category-filter">
+            <option value="all">All Types</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Dessert">Dessert</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="cuisine-filter">Cuisine</label>
+          <select id="cuisine-filter">
+            <option value="all">All Cuisines</option>
+            <option value="American">American</option>
+            <option value="Belgian">Belgian</option>
+            <option value="British">British</option>
+            <option value="Canadian">Canadian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Colombian">Colombian</option>
+            <option value="French">French</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Indian">Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+            <option value="Peruvian">Peruvian</option>
+            <option value="Russian">Russian</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Thai">Thai</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Vietnamese">Vietnamese</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sort-select">Sort By</label>
+          <select id="sort-select">
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
+            <option value="calories-asc">Calories Low-High</option>
+            <option value="calories-desc">Calories High-Low</option>
+            <option value="protein-asc">Protein Low-High</option>
+            <option value="protein-desc">Protein High-Low</option>
+            <option value="spice-asc">Spice Mild-Hot</option>
+            <option value="spice-desc">Spice Hot-Mild</option>
+          </select>
+        </div>
+
       </div>
+    </section>
+
+    <p id="results-count">Showing 0 meals</p>
+
+    <div id="card-container">
+
+      <!-- Template card — hidden by default, cloned by JavaScript -->
+      <div class="card" id="card-template" style="display: none;">
+        <img class="card-img" src="" alt="Meal image" />
+        <div class="card-body">
+          <h2 class="card-name">Name</h2>
+          <span class="card-cuisine">Cuisine</span>
+          <p class="card-type">Type: <span></span></p>
+          <p class="card-protein">Protein: <span></span> g</p>
+          <p class="card-spice">Spice: <span></span></p>
+          <p class="card-calories">Calories: <span></span> kcal</p>
+        </div>
+      </div>
+
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
-    </div>
-  </body>
+
+    <p id="empty-state" style="display: none;">No meals found.</p>
+
+  </main>
+
+  <footer>
+    <p>Built with HTML, CSS, and JavaScript</p>
+  </footer>
+
+</body>
 </html>

@@ -1,70 +1,214 @@
-html,
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+body {
+  font-family: Georgia, serif;
+  background-color: #f5f0eb;
+  color: #2c2c2c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
+/* Header */
+
+header {
+  background-color: #3b2f2f;
+  color: #f5f0eb;
   text-align: center;
-  margin: 0;
-  font-size: 8em;
-  font-family: "Helvetica";
-  font-weight: normal;
-  color: white;
+  padding: 2rem 1rem;
 }
+
+header h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+}
+
+header p {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* Main */
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+/* Controls card  */
+
+.controls-card {
+  background-color: #fff;
+  border: 1px solid #ddd0c4;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.controls-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3b2f2f;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 160px;
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #6b5e52;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.controls input,
+.controls select {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #c5b8a8;
+  border-radius: 4px;
+  background-color: #f9f6f3;
+  color: #2c2c2c;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Results count */
+
+#results-count {
+  font-size: 0.88rem;
+  color: #6b5e52;
+  margin-bottom: 1rem;
+}
+
+/* Card container */
 
 #card-container {
   display: flex;
-  justify-content: center;
-  margin: 20px;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
+
+/* Card */
 
 .card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd0c4;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  width: 220px;
+  overflow: hidden;
 }
 
-.card-content {
-  padding: 20px;
-  font-family: "Verdana";
-  color: #777;
-}
-
-.card-content h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-.card img {
+.card-img {
   width: 100%;
-  height: auto;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  background-color: #ede5db;
 }
 
-.footer {
+.card-body {
+  padding: 0.85rem 1rem;
   display: flex;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-button {
+.card-name {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #3b2f2f;
+}
+
+.card-cuisine {
+  display: inline-block;
+  font-size: 0.78rem;
+  background-color: #f0e8df;
+  color: #7a5c44;
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  width: fit-content;
+}
+
+.card-type,
+.card-protein,
+.card-spice,
+.card-calories {
+  font-size: 0.88rem;
+  color: #4a4a4a;
+}
+
+/* Cuisine badge colors */
+.card-cuisine[data-cuisine="Italian"]        { background: #c0392b; color: #fff; }
+.card-cuisine[data-cuisine="American"]       { background: #2980b9; color: #fff; }
+.card-cuisine[data-cuisine="Japanese"]       { background: #8e44ad; color: #fff; }
+.card-cuisine[data-cuisine="Thai"]           { background: #e67e22; color: #fff; }
+.card-cuisine[data-cuisine="Indian"]         { background: #d35400; color: #fff; }
+.card-cuisine[data-cuisine="Mexican"]        { background: #27ae60; color: #fff; }
+.card-cuisine[data-cuisine="Vietnamese"]     { background: #16a085; color: #fff; }
+.card-cuisine[data-cuisine="French"]         { background: #2c3e50; color: #fff; }
+.card-cuisine[data-cuisine="Russian"]        { background: #7f8c8d; color: #fff; }
+.card-cuisine[data-cuisine="British"]        { background: #1abc9c; color: #333; }
+.card-cuisine[data-cuisine="Chinese"]        { background: #e74c3c; color: #fff; }
+.card-cuisine[data-cuisine="Hungarian"]      { background: #a04020; color: #fff; }
+.card-cuisine[data-cuisine="Middle Eastern"] { background: #f39c12; color: #fff; }
+.card-cuisine[data-cuisine="Spanish"]        { background: #c0392b; color: #fff; }
+.card-cuisine[data-cuisine="Belgian"]        { background: #b8860b; color: #fff; }
+.card-cuisine[data-cuisine="Canadian"]       { background: #c0392b; color: #fff; }
+.card-cuisine[data-cuisine="Korean"]         { background: #9b59b6; color: #fff; }
+.card-cuisine[data-cuisine="Peruvian"]       { background: #e74c3c; color: #fff; }
+.card-cuisine[data-cuisine="Colombian"]      { background: #f39c12; color: #fff; }
+.card-cuisine[data-cuisine="Turkish"]        { background: #e67e22; color: #fff; }
+
+/* Input / select focus */
+.controls input:focus,
+.controls select:focus {
+  outline: 2px solid #a0714f;
+  outline-offset: 1px;
+  background-color: #fff;
+}
+
+/* Empty state */
+
+#empty-state {
+  font-size: 1rem;
+  color: #8a7060;
+  margin-top: 2rem;
   text-align: center;
-  background-color: #666;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 40px;
-  border-radius: 10px;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  margin: 5px;
+  width: 100%;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.82rem;
+  color: #9b8b7e;
+  border-top: 1px solid #ddd0c4;
+  background-color: #ede5db;
 }
